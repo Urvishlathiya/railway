@@ -146,7 +146,8 @@ def logging_user(Email:str, password:str):
    
         raise HTTPException(status_code=404, detail="Password is incorrect")
     
-    access_token = logging_token(db_user.id,Email)
+    access_token = logging_token(db_user.id,Email,db_user.user_name)
     return  access_token
 
-#-----------------------
+#------------------------------------------------------------------------------------------------------
+

@@ -6,20 +6,16 @@ from jose import JWTError, jwt
 load_dotenv()
 SECRET_KEY = str(os.environ.get("SECRET_KEY"))
 ALGORITHM = str(os.environ.get("ALGORITHM"))
-
-def get_token(id, password,Email):
+def get_token(id, Email, user_name):
     payload = {
         "user_id": id,
-        "user_password" : password,
         "email": Email,
-        "exp": datetime.utcnow() + timedelta(minutes=5),
+        "user_name": user_name,
+        "exp": datetime.utcnow() + timedelta(seconds=30),
     }
     access_token = jwt.encode(payload, SECRET_KEY, algorithm=ALGORITHM)
     print(type(access_token))
     return access_token
-
-
-
 def decode_token_user_id(token):
     try:
         payload = jwt.decode(token, SECRET_KEY, algorithms=[ALGORITHM])
@@ -66,16 +62,13 @@ def decode_token_user_name(token):
             detail="Invalid token",
         )
     
-def logging_token(id, user_name,Email):
+def logging_token(id,Email,user_name):
     payload = {
         "user_id": id,
-        "user_name" : user_name,
-        "Email": Email,
-        "exp": datetime.utcnow() + timedelta(minutes=5),
+        "email": Email,
+        "user_name": user_name,
+        "exp" : datetime.now() + timedelta(minutes=100)
     }
-    access_token = jwt.encode(payload, SECRET_KEY, algorithm=ALGORITHM)
+    access_token  = jwt.encode(payload,SECRET_KEY,ALGORITHM)
     print(type(access_token))
     return access_token
-
-
-
