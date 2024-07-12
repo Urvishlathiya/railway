@@ -6,7 +6,7 @@ import uuid
 class Booking(Base):
     __tablename__ = "booking"
     id = Column(String(50), primary_key=True, default=str(uuid.uuid4()))
-    user_id = Column(String(50),ForeignKey("users.id")),
+    user_id = Column(String(50),ForeignKey("users.id"))
     Departure_from = Column(String(30),nullable=False)
     Arrival_to = Column(String(30),nullable=False)
     Departure_Time= Column(String(30),nullable=False)

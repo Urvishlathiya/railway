@@ -39,7 +39,8 @@ def create_user_id(stu: StuBase):
 
 @User1.get("/get_user_details", response_model=StuBase)
 
-def read_person(user_id : int):
+def read_person(token : str):
+    user_id=decode_token_user_id(token)
     stu = db.query(User).filter(User.id == user_id, User.is_active==True , User.is_deleted == False).first()
     if stu is None:
         raise HTTPException(status_code=404, detail="Person not found")
@@ -149,5 +150,14 @@ def logging_user(Email:str, password:str):
     access_token = logging_token(db_user.id,Email,db_user.user_name)
     return  access_token
 
-#------------------------------------------------------------------------------------------------------
+#-------------------------------------------------------------------------------------------------------------
+
+@User1.get("/get_token_id")
+def get_token_id(token = Header(...)):
+    user_id = decode_token_user_id(token)
+    db_user = db.query(User).filter(User.id == user_id , User.is_active == True,User.is_deleted == False, User.is_verified == True ).first()
+    if db_user is  None:
+        raise HTTPException(status_code=404,detail="user not found")
+    return db_user
+
 

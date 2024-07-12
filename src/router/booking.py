@@ -44,14 +44,15 @@ def booking_tickets(booking : Bookingbase):
 
 @Booking1.get("/get_booking_details", response_model=Bookingbase)
 
-def read_bookings(user_id : str):
-    booking = db.query(Booking).filter(Booking.id == user_id, Booking.is_active==True , Booking.is_deleted == False).first()
+def read_bookings(booking_id : str):
+    breakpoint()
+    booking = db.query(Booking).filter(Booking.id == booking_id, Booking.is_active==True , Booking.is_deleted == False).first()
     if booking is None:
         raise HTTPException(status_code=404, detail="Details not found")
     return booking
 
 
-@Booking1.get("/post_booking_details/", response_model=list[Bookingbase])
+@Booking1.get("/all_booking_details/", response_model=list[Bookingbase])
 def read_bookings():
     booking = db.query(Booking).filter(Booking.is_active==True , Booking.is_deleted==False).all()
     length_list = len(booking)
@@ -82,3 +83,4 @@ def update_person(user_id: str, booking: Bookingbase):
     db.commit()
     
     return db_booking
+
