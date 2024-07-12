@@ -17,6 +17,7 @@ class OTP_Verify(BaseModel):
     
 class Bookingbase(BaseModel):
     user_id : str
+    id : str
     Departure_from  : str
     Arrival_to  : str 
     Departure_Time : str 

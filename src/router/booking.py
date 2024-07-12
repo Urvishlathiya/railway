@@ -63,10 +63,16 @@ def read_bookings():
 
 
 @Booking1.put("/Update_booking_details/", response_model=Bookingbase)
-def update_person(user_id: str, booking: Bookingbase):
-    db_booking = db.query(Booking).filter(Booking.id == user_id).first()
-    if db_booking is None:
+def update_person(booking: Bookingbase):
+    db_user = db.query(User).filter(User.id == booking.user_id).first()
+    if db_user is None:
         raise HTTPException(status_code=404, detail="User not found")
+    
+    db_booking = db.query(Booking).filter(Booking.id == booking.id).first()
+    if db_booking is None:
+        raise HTTPException(status_code=404, detail="Booking not found")
+
+
     db_booking.user_id = booking.user_id, 
     db_booking.Departure_from =booking.Departure_from,
     db_booking.Arrival_to =booking.Arrival_to,
@@ -80,7 +86,9 @@ def update_person(user_id: str, booking: Bookingbase):
     db_booking.Total_amount = booking.Total_amount,
 
 
+    db.delete(db_booking)
     db.commit()
+    
     
     return db_booking
 
