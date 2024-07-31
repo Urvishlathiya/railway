@@ -19,6 +19,8 @@ from database.database import Base
 from src.model.user import User
 from src.model.otp import Otp
 from src.model.bookings import Booking
+from src.model.payment import Payment
+
 import os
 load_dotenv()
 db_url = os.environ.get("DB_URL")

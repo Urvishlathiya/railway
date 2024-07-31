@@ -1,8 +1,8 @@
-"""ok
+"""payment api added
 
-Revision ID: a41874d55093
-Revises: 828d301e3c23
-Create Date: 2024-07-04 14:32:38.355685
+Revision ID: 096a4a6d4a7c
+Revises: 6ee15708d5c4
+Create Date: 2024-07-30 16:10:01.295014
 
 """
 from typing import Sequence, Union
@@ -12,8 +12,8 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision: str = 'a41874d55093'
-down_revision: Union[str, None] = '828d301e3c23'
+revision: str = '096a4a6d4a7c'
+down_revision: Union[str, None] = '6ee15708d5c4'
 branch_labels: Union[str, Sequence[str], None] = None
 depends_on: Union[str, Sequence[str], None] = None
 

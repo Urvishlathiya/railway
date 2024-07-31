@@ -17,7 +17,6 @@ class OTP_Verify(BaseModel):
     
 class Bookingbase(BaseModel):
     user_id : str
-    id : str
     Departure_from  : str
     Arrival_to  : str 
     Departure_Time : str 
@@ -28,3 +27,11 @@ class Bookingbase(BaseModel):
     Food_Available  : str 
     Price_of_one_ticket  : str 
     Total_amount  : str 
+
+class Payment(BaseModel):
+    Booking_id : str
+    payment_method : str
+    transaction_status : str
+    total_amount : str
+
+

@@ -6,8 +6,7 @@ import smtplib
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 from datetime import datetime,timedelta
-
-
+# shruti vaibhavi harshavi diya lad diya thakor amisha 
 
 import uuid
 Otp_router=APIRouter()
