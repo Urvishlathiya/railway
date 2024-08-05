@@ -20,6 +20,7 @@ from src.model.user import User
 from src.model.otp import Otp
 from src.model.bookings import Booking
 from src.model.payment import Payment
+from src.model.trains import Train
 
 import os
 load_dotenv()

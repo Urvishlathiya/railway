@@ -34,4 +34,12 @@ class Payment(BaseModel):
     transaction_status : str
     total_amount : str
 
+class Trains(BaseModel):
+    Train_name : str
+    Train_class : str
+    Departure_from : str
+    Arrival_to : str
+    Departure_Time: str
+    Departure_date : str
+    Price_of_one_ticket : str
 

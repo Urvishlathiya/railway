@@ -11,7 +11,7 @@ from datetime import datetime
 
 
 #from src.schemas.student import RollStu, BranchStu
-Booking1 = APIRouter()
+Booking1 = APIRouter(tags=["BOOKING"])
 
 
 db = SessionLocal()

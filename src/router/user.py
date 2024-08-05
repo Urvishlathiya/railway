@@ -12,8 +12,8 @@ from src.utils.token import decode_token_user_id,decode_token_user_email,decode_
 
 
 #from src.schemas.student import RollStu, BranchStu
-User1 = APIRouter()
-Otp_router = APIRouter()
+User1 = APIRouter(tags=["USER LOGIN/REGISTRATION"])
+Otp_router = APIRouter(tags=["OTP"])
 db = SessionLocal()
 
 
