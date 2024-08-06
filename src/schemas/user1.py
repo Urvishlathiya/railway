@@ -43,3 +43,26 @@ class Trains(BaseModel):
     Departure_date : str
     Price_of_one_ticket : str
 
+class Schedules(BaseModel):
+    train_id : str
+    Departure_from : str
+    Arrival_to: str
+    Departure_Time: str
+    Departure_date  : str
+    JourneyDuration : str
+    Booked_tickets : str
+    Availability : str
+    Status : str
+    Stations  : str
+
+class Mybookings(BaseModel):
+    user_id   : str
+    Booking_id  : str
+    Train_name  : str
+    Departure_from  : str
+    Arrival_to  : str
+    Departure_Time : str
+    Departure_date  : str
+    Booked_tickets  : str
+    Booking_Status  : str
+    Booking_date  : str
