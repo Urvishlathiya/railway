@@ -3,6 +3,7 @@ from database.database import Base
 from datetime import datetime
 import uuid
 
+
 class Mybooking(Base):
     __tablename__ = "mybooking"
     id = Column(String(50), primary_key=True, default=str(uuid.uuid4()))
